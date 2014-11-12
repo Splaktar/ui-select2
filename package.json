@@ -26,6 +26,9 @@
     "karma": "~0.12.x",
     "grunt-conventional-changelog": "~1.1.x",
     "load-grunt-tasks": "~1.0.x",
-    "karma-jasmine": "~0.2.x"
+    "karma-jasmine": "~0.2.x",
+    "karma-phantomjs-launcher": "~0.1.x",
+    "karma-firefox-launcher": "~0.1.x",
+    "karma-chrome-launcher": "~0.1.x"
   }
 }
