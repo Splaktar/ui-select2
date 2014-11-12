@@ -89,9 +89,9 @@ angular.module('ui.select2', []).value('uiSelect2Config', {}).directive('uiSelec
             if (current === old) {
               return;
             }
-            $timeout(function () {
+            //$timeout(function () {
               controller.$render();
-            });
+            //});
           }, true);
           controller.$render = function () {
             if (isSelect) {

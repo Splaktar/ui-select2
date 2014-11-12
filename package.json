@@ -18,7 +18,7 @@
   },
   "dependencies": {},
   "devDependencies": {
-    "async": "~0.9.x",
+    "async": "~0.1.22",
     "grunt": "~0.4.x",
     "grunt-contrib-jshint": "~0.10.x",
     "grunt-contrib-watch": "~0.6.x",
