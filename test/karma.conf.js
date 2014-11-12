@@ -53,14 +53,7 @@ module.exports = function(config) {
     // - Safari (only Mac)
     // - PhantomJS
     // - IE (only Windows)
-    browsers: ['Chrome', 'Firefox'],
-
-    customLaunchers: {
-      Chrome_travis_ci: {
-        base: 'Chrome',
-        flags: ['--no-sandbox']
-      }
-    },
+    browsers: ['Chrome', 'Firefox', 'PhantomJS'],
 
     // If browser does not capture in given timeout [ms], kill it
     captureTimeout: 60000,
@@ -71,7 +64,7 @@ module.exports = function(config) {
   };
 
   if (process.env.TRAVIS) {
-    configuration.browsers = ['Chrome_travis_ci'];
+    configuration.browsers = ['Firefox', 'PhantomJS'];
   }
 
   config.set(configuration);
