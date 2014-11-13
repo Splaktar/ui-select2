@@ -1,3 +1,24 @@
+//    The MIT License
+//
+//    Copyright (c) 2012 the AngularUI Team, http://angular-ui.github.com
+//
+//    Permission is hereby granted, free of charge, to any person obtaining a copy
+//    of this software and associated documentation files (the "Software"), to deal
+//    in the Software without restriction, including without limitation the rights
+//    to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+//    copies of the Software, and to permit persons to whom the Software is
+//    furnished to do so, subject to the following conditions:
+//
+//        The above copyright notice and this permission notice shall be included in
+//    all copies or substantial portions of the Software.
+//
+//        THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+//    IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+//        FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+//    AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+//    LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+//        OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+//    THE SOFTWARE.
 /**
  * Enhanced Select2 Dropmenus
  *
@@ -164,6 +185,11 @@ angular.module('ui.select2', []).value('uiSelect2Config', {}).directive('uiSelec
 
           if (!isSelect) {
             // Set the view and model value and update the angular template manually for the ajax/multiple select2.
+            var events = jQuery._data(elm[0], 'events');
+            var hoistEvent = false;
+            if (events && events.change) {
+              hoistEvent = true;
+            }
             elm.bind("change", function (e) {
               e.stopImmediatePropagation();
               
@@ -175,6 +201,11 @@ angular.module('ui.select2', []).value('uiSelect2Config', {}).directive('uiSelec
                   convertToAngularModel(elm.select2('data')));
               });
             });
+            if (hoistEvent) {
+              var event = events.change[events.change.length-1];
+              events.change.splice(events.change.length-1, 1);
+              events.change.splice(0, 0, event);
+            }
 
             if (opts.initSelection) {
               var initSelection = opts.initSelection;

@@ -318,14 +318,14 @@ describe('uiSelect2', function () {
         // callback setting
         expect(element.select2).toHaveBeenCalledWith('data', [{ id: 1, text: "first - I've been formatted" },{ id: 2, text: "second - I've been formatted" }]);
 
-        // retieve data
+        // retrieve data
         expect(element.select2).toHaveBeenCalledWith('data');
       });
 
     });
     it('should set the model when the user selects an item', function(){
       var element = compile('<input ng-model="foo" multiple ui-select2="options">');
-      // TODO: programmactically select an option
+      // TODO: programmatically select an option
       // expect(scope.foo).toBe(/*  selected val  */) ;
     });
 
