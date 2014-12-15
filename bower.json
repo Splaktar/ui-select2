@@ -1,13 +1,13 @@
 {
-  "author": "AngularUI",
-  "name": "angular-ui-select2",
-  "version": "0.0.5",
-  "homepage": "http://angular-ui.github.com",
+  "name": "angular-ui-select2-splaktar",
+  "version": "0.0.6",
+  "homepage": "https://github.com/Splaktar/ui-select2",
   "keywords": [
     "angular",
     "angularui",
     "select2"
   ],
+  "author": "AngularUI",
   "main": "./src/select2.js",
   "dependencies": {
     "angular": "~1.2.x",
